@@ -1,0 +1,115 @@
+# SPEC: initial build of the homepage
+
+Read `CLAUDE.md` first: its rules apply throughout. Work through the phases in order,
+ticking items off as you go. **Stop after Phase 1 and show me the live page before
+starting Phase 2.**
+
+Unfilled brackets like `[YEAR]` are mine to fill in: leave them as visible placeholders.
+
+---
+
+## Content
+
+### About me (use verbatim unless it breaks the layout)
+- **Name:** Lev Khoriak. Show "Лев Хоряк" once, small, next to or under the name.
+- **One-liner:** I'm interested in the science of deep learning — how neural networks
+  learn, what they represent, and why they generalize.
+- **Bio:** I'm an MSc student in Artificial Intelligence at the Faculty of Computer
+  Science, HSE University, and a data scientist at Alfa-Bank, where I build machine
+  learning models in production. Before that, I received a BSc in International
+  Finance. My research interests are in the science of deep learning: learning
+  dynamics, loss landscapes, generalization, representation geometry, and
+  mechanistic interpretability. I'm especially drawn to careful empirical work
+  that tests what theory predicts about real training runs.
+- **Education:**
+  - MSc in Artificial Intelligence, HSE University, Faculty of Computer Science (expected [YEAR])
+  - BSc in International Finance ([YEAR]) — no institution name
+- **Links:** Email [..], GitHub https://github.com/LevKhoriak, ORCID [..],
+  X/Twitter [.. or omit], CV [path or omit]. Google Scholar: omit for now.
+- **Photo:** [path to image, or a neutral placeholder]
+
+### bio.txt (third person, served at `/bio.txt`)
+> Lev Khoriak is an MSc student in Artificial Intelligence at the HSE University
+> Faculty of Computer Science and a data scientist at Alfa-Bank. He is interested in
+> the science of deep learning, including learning dynamics, loss landscapes,
+> generalization, representation geometry, and mechanistic interpretability, with an
+> emphasis on careful empirical studies of real training runs. He holds a BSc in
+> International Finance.
+
+### Initial list entries (placeholder thumbnails)
+1. **[project]** "Multimodal Recommender System"
+   - Authors: Anzhelika Artamonova, Valeria Kushchenko, Alexey Pristaiko, **Lev Khoriak**
+   - Venue: HSE University course project, 2026–2027
+   - Link: https://github.com/LevKhoriak/hse-ai-26-recsys-team-120
+   - Summary: Text and image content for recommendations on Amazon Reviews 2023,
+     with a focus on cold items and short user histories.
+2. **[note]** "What CLIP sees in Amazon products" (`draft: true`, hidden until published)
+   - Authors: same as above
+   - Summary: Image embeddings group groceries by packaging, a third of fashion items
+     share a photo, and standard 5-core filtering would erase almost all cold-start
+     evaluation.
+
+### Misc section (bottom of the homepage)
+- As a school student at the Specialized Educational and Scientific Center (SUNC) of
+  Southern Federal University, I recorded science podcasts with university researchers
+  as part of the *Поколение Science* project. [links: ..]
+
+---
+
+## Phase 1 — Homepage
+- [x] Set up from Jon Barron's template in this repo (keep credit link, remove analytics).
+  - Note: based on the current flex/grid version of his `stylesheet.css`; colors moved to CSS variables. Removed the old Jekyll `_config.yml`.
+- [x] Header: name, Russian name, one-liner/bio, links, photo.
+  - Note: X/Twitter and CV omitted; Email and ORCID left as visible `[..]` placeholders; neutral SVG placeholder photo.
+- [x] Education section.
+- [x] "Research & Notes" list supporting [paper] / [note] / [project] tags,
+      multiple co-authors with my name in bold, and hidden drafts.
+  - Note: drafts are `<article ... data-draft>`; shown dashed in local preview, stripped by `scripts/build.py` before deploy.
+- [x] Add the two initial entries above (draft note hidden).
+  - Note: draft note's date is a `[DATE]` placeholder.
+- [x] Misc section with the podcasts entry.
+- [x] `/bio.txt`.
+- [x] Mobile-friendly layout. Light theme by default; dark mode via
+      `prefers-color-scheme` is a nice-to-have.
+  - Note: dark mode done via `prefers-color-scheme`.
+- [ ] GitHub Actions deploy workflow + `.nojekyll`; site live at https://levkhoriak.github.io.
+- [ ] **STOP: show me the live page.**
+
+## Phase 2 — Notes system (Quarto)
+- [ ] Quarto project for `notes/` with a custom theme matching the homepage.
+- [ ] Shared `references.bib` at the repo root.
+- [ ] Note page features:
+  - [ ] title block with multiple authors and affiliations, date, tags
+  - [ ] `takeaway` shown at the top
+  - [ ] sticky table of contents with scroll-spy highlighting
+  - [ ] Distill-style widths: body / page / screen figures and margin notes
+        (`.column-page`, `.column-screen`, `.column-margin`)
+  - [ ] numbered citations with hover previews of the bibliography entry
+  - [ ] hover previews for figure cross-references ("Figure 2" shows the figure)
+  - [ ] click-to-zoom lightbox on figures
+  - [ ] copy button on code blocks; "copy BibTeX" button for the note
+  - [ ] KaTeX or MathJax math
+  - [ ] anything Quarto lacks natively → own small vanilla JS file
+- [ ] `notes/template.qmd`: dummy content demonstrating every feature above.
+- [ ] `notes/clip-amazon-products.qmd`: `draft: true` skeleton with empty figure slots:
+  - Takeaway
+  - Setup (Amazon Reviews 2023, Fashion vs Grocery, temporal split)
+  - How cold is the test set? (figure: user-history × item-popularity grid)
+  - What 5-core filtering would remove (figure)
+  - What CLIP neighbors share (figure: same-type share among 10 nearest neighbors,
+    image vs title vs random)
+  - Duplicates and packaging
+  - Limitations
+  - Acknowledgements (team and curator)
+- [ ] Homepage list generated from note front matter by a small Python script
+      (respecting `draft`). If too complex, document the manual step instead.
+- [ ] Deploy workflow renders Quarto; published notes appear on the live site.
+
+## Phase 3 — Placeholder
+- [ ] Empty `papers/` folder with a README: future papers are converted LaTeX → HTML
+      (Pandoc or LaTeXML) and share `references.bib`. Don't build the pipeline yet.
+
+## Done when
+- [ ] Site live at https://levkhoriak.github.io with Phases 1–3 complete.
+- [ ] `README.md` covers: local preview, adding/publishing a note (draft → published),
+      adding a paper or project entry, how deployment works.
