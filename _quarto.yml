@@ -21,6 +21,7 @@ format:
     respect-user-color-scheme: true
     highlight-style: a11y
     css: shared.css
+    include-in-header: notes/_note-head.html
     include-after-body: notes/_note-scripts.html
     template-partials:
       - notes/_partials/title-block.html

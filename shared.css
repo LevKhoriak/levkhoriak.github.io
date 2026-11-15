@@ -74,8 +74,11 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* Colors */
-:root {
+/* Colors.
+   Light by default; dark when the system prefers dark, unless overridden by the toggle
+   (theme-toggle.js sets data-theme on <html>; on notes Quarto also sets body.quarto-dark/-light). */
+:root,
+body.quarto-light {
   --bg: #ffffff;
   --text: #000000;
   --muted: #555555;
@@ -87,11 +90,12 @@
   --tag-note: #fde7c8;
   --tag-project: #dcefd9;
   --tag-text: #333333;
-  color-scheme: light dark;
+  color-scheme: light;
 }
 
+/* The dark values appear twice (system preference / explicit toggle); keep both in sync. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #161616;
     --text: #e6e6e6;
     --muted: #b4b4b4;
@@ -103,5 +107,52 @@
     --tag-note: #4a3a22;
     --tag-project: #24402a;
     --tag-text: #e6e6e6;
+    color-scheme: dark;
   }
+}
+
+:root[data-theme="dark"],
+body.quarto-dark {
+  --bg: #161616;
+  --text: #e6e6e6;
+  --muted: #b4b4b4;
+  --link: #6aa8ec;
+  --link-hover: #f5a95a;
+  --highlight: #33321f;
+  --placeholder-bg: #2a2a2a;
+  --tag-paper: #22364f;
+  --tag-note: #4a3a22;
+  --tag-project: #24402a;
+  --tag-text: #e6e6e6;
+  color-scheme: dark;
+}
+
+/* Light/dark toggle button (created by theme-toggle.js). */
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 12px;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--muted);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--link-hover);
+  border-color: var(--link-hover);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
 }

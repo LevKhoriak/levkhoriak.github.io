@@ -116,3 +116,8 @@ a.lightbox img {
 #quarto-appendix.default .quarto-appendix-bibtex {
   font-size: 0.85em;
 }
+
+// The site-wide toggle from theme-toggle.js replaces Quarto's floating one.
+.quarto-color-scheme-toggle-container {
+  display: none !important;
+}

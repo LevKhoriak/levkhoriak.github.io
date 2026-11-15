@@ -28,7 +28,7 @@ NOTES = ROOT / "notes"
 MY_NAME = "Lev Khoriak"
 
 # Homepage files that belong on the website. Anything else (README, docs, scripts) is not published.
-PUBLIC = ["index.html", "stylesheet.css", "shared.css", "bio.txt", ".nojekyll", "images"]
+PUBLIC = ["index.html", "stylesheet.css", "shared.css", "theme-toggle.js", "bio.txt", ".nojekyll", "images"]
 
 ARTICLE = re.compile(r"[ \t]*<article\b.*?</article>\n?", re.DOTALL)
 PAPERS_SECTION = re.compile(r'(<section class="papers">\n)(.*?)(\s*</section>)', re.DOTALL)
