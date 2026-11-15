@@ -6,7 +6,9 @@ These rules always apply. For the current task, read `docs/SPEC.md`.
 ## Stack
 - Homepage: a single hand-written `index.html` + CSS, based on Jon Barron's template
   (https://github.com/jonbarron/jonbarron_website). No framework.
-- Notes: Quarto (`.qmd`) in `notes/`, rendered to HTML.
+- Notes: Quarto, one folder per note in `notes/<name>/` (`index.qmd` + its own `images/`
+  and `results/`), rendered to HTML at `/notes/<name>/`. Shared theme/partials/CSL live in
+  `notes/_theme/`, shared Python (plotting) in `notes/_lib/`. `notes/template/` demos every feature.
 - Papers (future): LaTeX → HTML (Pandoc or LaTeXML) in `papers/`.
 - Shared bibliography: `references.bib` at the repo root, used by notes and papers.
 - Prefer Python tooling. No npm / JS build step. Small vanilla JS files are fine.
@@ -25,8 +27,9 @@ These rules always apply. For the current task, read `docs/SPEC.md`.
 - Every note's front matter has: `title`, `authors`, `date`, `tags`, `takeaway`
   (one sentence, shown at the top), `thumbnail`, `draft`.
 - `draft: true` notes are rendered locally but never listed or published.
-- Notes keep code minimal: chunks only import plotting functions and read saved
-  results from disk. Use `echo: false` and `freeze: auto`.
+- Notes keep code minimal: chunks only import plotting functions (from `notes/_lib/`) and
+  read saved results from the note's own `results/`. Use `echo: false` and `freeze: auto`;
+  commit `_freeze/`.
 - Notes and the homepage share fonts and colors.
 
 ## Deployment

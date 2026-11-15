@@ -12,11 +12,10 @@ Based on [Jon Barron's template](https://github.com/jonbarron/jonbarron_website)
 | `theme-toggle.js` | Theme button on every page, cycling system → light → dark. The choice is remembered under Quarto's own setting, so it carries between homepage and notes. |
 | `bio.txt` | Third-person bio, served at `/bio.txt`. |
 | `images/` | Homepage photo and thumbnails. |
-| `notes/*.qmd` | Notes (Quarto). `notes/template.qmd` shows every feature. |
-| `notes/plotting.py`, `notes/results/` | Plotting functions and saved results that notes read. |
-| `notes/images/` | Note thumbnails (160×160). |
-| `notes/_partials/`, `notes/theme-*.scss`, `notes/_note-rules.scss`, `notes/_note-scripts.html` | Note title block, theme, and the small JS (Copy BibTeX). |
-| `_quarto.yml` | Quarto settings for all notes. |
+| `notes/<name>/` | One folder per note: `index.qmd`, `images/` (thumbnail, static images), `results/` (saved results the figures read). Published at `/notes/<name>/`. `notes/template/` shows every feature. |
+| `notes/_lib/` | Shared Python for notes (`plotting.py`). Importable from any note via `_environment`. |
+| `notes/_theme/` | Note theme (SCSS), title-block partial, citation style (IEEE CSL), and the small header/footer scripts (theme button, Copy BibTeX). |
+| `_quarto.yml`, `_environment` | Quarto settings for all notes; `PYTHONPATH` for `notes/_lib`. |
 | `_freeze/` | Saved output of note code (commit it; CI reuses it instead of re-running code). |
 | `references.bib` | Shared bibliography for notes and (future) papers. |
 | `papers/` | Placeholder for LaTeX → HTML papers. |
@@ -45,19 +44,22 @@ Exactly what will be published: same, without `--drafts`.
 While writing a single note, live-reload it:
 
 ```sh
-QUARTO_PYTHON=.venv/bin/python .venv/bin/quarto preview notes/my-note.qmd
+QUARTO_PYTHON=.venv/bin/python .venv/bin/quarto preview notes/my-note/index.qmd
 ```
 
 ## Adding a note
 
-1. Copy `notes/template.qmd` to `notes/<short-name>.qmd` (the file name becomes the URL:
-   `/notes/<short-name>.html`).
+1. Copy the folder `notes/template/` to `notes/<short-name>/` (the folder name becomes the
+   URL: `/notes/<short-name>/`). Replace `results/` with your own and `images/thumb.svg`
+   with a 160×160 thumbnail.
 2. Fill in the front matter: `title`, `authors` (with `affiliations`; add
    `attributes: {equal-contributor: true}` + `author-note` for alphabetical lists),
    `date`, `tags`, `takeaway` (one sentence, shown at the top and on the homepage),
-   `thumbnail` (`images/...` inside `notes/`), `draft: true`, and `citation: url:`.
-3. Keep code minimal: chunks import from `plotting.py` and read results from
-   `notes/results/<short-name>/`. Code is hidden by default (`echo: false`).
+   `thumbnail` (`images/...`, relative to the note folder), `draft: true`, and
+   `citation: url: https://levkhoriak.github.io/notes/<short-name>/`.
+3. Keep code minimal: chunks import from `plotting` (in `notes/_lib/`) and read files from
+   the note's own `results/`, e.g. `plot_curves("results/curves.csv")`. Code is hidden by
+   default (`echo: false`). Add new shared plotting functions to `notes/_lib/plotting.py`.
 4. Cite with `[@key]` from `references.bib`; reference figures with `@fig-label`.
 5. Render locally (`scripts/build.py --drafts`) so `_freeze/` is updated, and commit
    `_freeze/` together with the note.
