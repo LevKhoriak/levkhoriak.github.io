@@ -36,6 +36,8 @@ Copy an existing `<article class="paper">` block inside `<section class="papers"
 
 - tag: `<span class="tag tag-paper">paper</span>`, `tag-note` / `note`, or `tag-project` / `project`
 - authors: co-authors as `<span class="author">Name</span>` (or a link), my name as `<strong>Lev Khoriak</strong>`
+- alphabetical author lists: mark each listed author with `<sup>*</sup>`, put the advisor last without a mark,
+  and add `<div class="author-note"><sup>*</sup> Alphabetical order; NAME is the advisor.</div>` under the authors
 - thumbnail: put a 160×160 image in `images/` and point the `<img>` at it
 - venue/date, links (`/`-separated), and a one-line summary in `paper-desc`
 

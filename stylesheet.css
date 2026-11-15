@@ -418,3 +418,13 @@ h2 {
   background-color: var(--tag-note);
   color: var(--text);
 }
+
+.paper-authors sup {
+  font-size: 9px;
+}
+
+/* Footnote under an author list, e.g. "* Alphabetical order". */
+.author-note {
+  font-size: 11px;
+  color: var(--muted);
+}
