@@ -1,5 +1,5 @@
 /* Fonts and colors shared by the homepage (stylesheet.css) and the notes (notes/theme*.scss).
-   If you change a color here, update the matching SCSS variable in notes/theme-*.scss. */
+   If you change a color here, update the matching SCSS variable in notes/_theme/theme-*.scss. */
 
 /* latin-ext */
 @font-face {

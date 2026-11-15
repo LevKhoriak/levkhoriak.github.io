@@ -4,27 +4,27 @@ project:
   type: default
   output-dir: _site
   render:
-    - notes/*.qmd
+    - notes/*/index.qmd
 
 execute:
   echo: false
   freeze: auto
 
 bibliography: references.bib
-csl: notes/ieee.csl
+csl: notes/_theme/ieee.csl
 
 format:
   html:
     theme:
-      light: [cosmo, notes/theme-light.scss]
-      dark: [darkly, notes/theme-dark.scss]
+      light: [cosmo, notes/_theme/theme-light.scss]
+      dark: [darkly, notes/_theme/theme-dark.scss]
     respect-user-color-scheme: true
     highlight-style: a11y
     css: shared.css
-    include-in-header: notes/_note-head.html
-    include-after-body: notes/_note-scripts.html
+    include-in-header: notes/_theme/_note-head.html
+    include-after-body: notes/_theme/_note-scripts.html
     template-partials:
-      - notes/_partials/title-block.html
+      - notes/_theme/_partials/title-block.html
     toc: true
     toc-location: left
     toc-title: Contents

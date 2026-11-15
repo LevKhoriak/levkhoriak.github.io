@@ -25,11 +25,11 @@ author-note: "* Alphabetical order; John Advisor is the advisor."
 date: 2026-11-15
 tags: [template, demo]
 takeaway: "This sentence is the one-line takeaway: it appears at the top of the note and as the summary on the homepage."
-thumbnail: images/thumb-placeholder.svg
+thumbnail: images/thumb.svg
 draft: true
 citation:
   type: webpage
-  url: https://levkhoriak.github.io/notes/template.html
+  url: https://levkhoriak.github.io/notes/template/
 ---
 
 ## Introduction
@@ -61,7 +61,7 @@ figure, @fig-grid a page-width one, and @fig-wide a full-screen one. Click a fig
 #| label: fig-curves
 #| fig-cap: "Body width. Training and validation loss (made-up numbers)."
 from plotting import plot_curves
-plot_curves("results/template/curves.csv");
+plot_curves("results/curves.csv");
 ```
 
 ```{python}
@@ -69,14 +69,14 @@ plot_curves("results/template/curves.csv");
 #| fig-cap: "Page width (`.column-page`). Share of test interactions by user history and item popularity."
 #| column: page
 from plotting import plot_grid
-plot_grid("results/template/grid.csv", xlabel="item popularity (train interactions)", ylabel="user history");
+plot_grid("results/grid.csv", xlabel="item popularity (train interactions)", ylabel="user history");
 ```
 
 ```{python}
 #| label: fig-wide
 #| fig-cap: "Screen width (`.column-screen`). The same curves, as wide as the window."
 #| column: screen
-plot_curves("results/template/curves.csv", figsize=(14, 3.2));
+plot_curves("results/curves.csv", figsize=(14, 3.2));
 ```
 
 A figure can also have its caption in the margin:
@@ -85,7 +85,7 @@ A figure can also have its caption in the margin:
 #| label: fig-margin-cap
 #| fig-cap: "A caption placed in the margin with `fig-cap-location: margin`."
 #| fig-cap-location: margin
-plot_curves("results/template/curves.csv");
+plot_curves("results/curves.csv");
 ```
 
 ## Code
@@ -96,7 +96,7 @@ plain code block; it gets a copy button:
 ```python
 from plotting import plot_curves
 
-plot_curves("results/my-experiment/curves.csv")
+plot_curves("results/curves.csv")
 ```
 
 ## Citing this note

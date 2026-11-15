@@ -1,6 +1,7 @@
 """Build the whole site into _site/.
 
-1. Renders every note in notes/*.qmd with Quarto (skipping `draft: true` notes).
+1. Renders every note (notes/<name>/index.qmd) with Quarto, skipping `draft: true` notes,
+   and copies each note's images/ folder (thumbnails).
 2. Copies the hand-written homepage and its files.
 3. Adds one homepage entry per rendered note (from its front matter), merges them with
    the hand-written entries newest first (by `data-date`), and removes draft entries.
@@ -63,9 +64,10 @@ def author_html(author: dict) -> str:
 def note_entry(qmd: Path, meta: dict) -> str:
     """Homepage <article> for one note, in the same format as the hand-written entries."""
     when = meta["date"] if isinstance(meta["date"], date) else date.fromisoformat(str(meta["date"]))
-    page = f"notes/{qmd.stem}.html"
+    folder = f"notes/{qmd.parent.name}/"
+    page = folder
     title = html.escape(meta["title"])
-    thumb = f'notes/{meta.get("thumbnail", "images/thumb-placeholder.svg")}'
+    thumb = folder + meta.get("thumbnail", "images/thumb.svg")
     authors = ", ".join(author_html(a) for a in meta.get("authors", []))
     note = meta.get("author-note")
     lines = [
@@ -117,13 +119,15 @@ def main() -> None:
     OUT.mkdir()
 
     # 1. Notes
-    notes = [(q, front_matter(q)) for q in sorted(NOTES.glob("*.qmd")) if not q.name.startswith("_")]
+    # One folder per note; folders starting with "_" (_theme, _lib) are not notes.
+    notes = [(q, front_matter(q)) for q in sorted(NOTES.glob("*/index.qmd")) if not q.parent.name.startswith("_")]
     notes = [(q, m) for q, m in notes if args.drafts or not m.get("draft")]
     if notes:
         quarto = find_quarto()
         for qmd, _ in notes:
             render_note(quarto, qmd)
-        shutil.copytree(NOTES / "images", OUT / "notes" / "images", dirs_exist_ok=True)
+            if (qmd.parent / "images").is_dir():
+                shutil.copytree(qmd.parent / "images", OUT / "notes" / qmd.parent.name / "images", dirs_exist_ok=True)
 
     # 2. Homepage files
     for name in PUBLIC:

@@ -22,11 +22,11 @@ author-note: "* Alphabetical order; Danila Lyapin is the advisor."
 date: 2026-11-15
 tags: [recommender systems, CLIP, cold start]
 takeaway: "Image embeddings group groceries by packaging, a third of fashion items share a photo, and standard 5-core filtering would erase almost all cold-start evaluation."
-thumbnail: images/thumb-placeholder.svg
+thumbnail: images/thumb.svg
 draft: true
 citation:
   type: webpage
-  url: https://levkhoriak.github.io/notes/clip-amazon-products.html
+  url: https://levkhoriak.github.io/notes/clip-amazon-products/
 ---
 
 ## Setup
