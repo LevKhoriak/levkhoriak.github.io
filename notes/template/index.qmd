@@ -106,7 +106,7 @@ label, width class, and caption go on a `:::` block, and the chunk only plots.
 
 ````markdown
 ::: {#fig-curves .column-page}
-```{python}
+```{{python}}
 #| renderings: [light, dark]
 from plotting import plot_curves
 plot_curves("results/curves.csv")
