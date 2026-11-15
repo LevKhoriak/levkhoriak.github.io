@@ -30,6 +30,8 @@ These rules always apply. For the current task, read `docs/SPEC.md`.
 - Notes keep code minimal: chunks only import plotting functions (from `notes/_lib/`) and
   read saved results from the note's own `results/`. Use `echo: false` and `freeze: auto`;
   commit `_freeze/`.
+- Note figures are theme-aware: plotting functions draw light + dark versions; write each
+  figure as a `::: {#fig-name}` block around a chunk with `#| renderings: [light, dark]`.
 - Notes and the homepage share fonts and colors.
 
 ## Deployment

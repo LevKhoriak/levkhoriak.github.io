@@ -59,7 +59,11 @@ QUARTO_PYTHON=.venv/bin/python .venv/bin/quarto preview notes/my-note/index.qmd
    `citation: url: https://levkhoriak.github.io/notes/<short-name>/`.
 3. Keep code minimal: chunks import from `plotting` (in `notes/_lib/`) and read files from
    the note's own `results/`, e.g. `plot_curves("results/curves.csv")`. Code is hidden by
-   default (`echo: false`). Add new shared plotting functions to `notes/_lib/plotting.py`.
+   default (`echo: false`). Add new shared plotting functions to `notes/_lib/plotting.py`;
+   each one draws a light and a dark version (see the docstring there).
+   Write figures as a `::: {#fig-name}` block (add `.column-page` / `.column-screen` for
+   wider ones) containing the chunk with `#| renderings: [light, dark]`, then the caption.
+   Don't put `label: fig-...` on the chunk itself. `notes/template/index.qmd` shows the pattern.
 4. Cite with `[@key]` from `references.bib`; reference figures with `@fig-label`.
 5. Render locally (`scripts/build.py --drafts`) so `_freeze/` is updated, and commit
    `_freeze/` together with the note.
