@@ -1,0 +1,110 @@
+---
+title: "Note template: every feature in one place"
+authors:
+  - name: Lev Khoriak
+    affiliations:
+      - ref: hse
+    attributes:
+      equal-contributor: true
+  - name: Jane Doe
+    url: https://example.com
+    affiliations:
+      - ref: hse
+      - ref: other
+    attributes:
+      equal-contributor: true
+  - name: John Advisor
+    affiliations:
+      - ref: other
+affiliations:
+  - id: hse
+    name: HSE University
+  - id: other
+    name: Example Institute
+author-note: "* Alphabetical order; John Advisor is the advisor."
+date: 2026-11-15
+tags: [template, demo]
+takeaway: "This sentence is the one-line takeaway: it appears at the top of the note and as the summary on the homepage."
+thumbnail: images/thumb-placeholder.svg
+draft: true
+citation:
+  type: webpage
+  url: https://levkhoriak.github.io/notes/template.html
+---
+
+## Introduction
+
+This note is a living reference: copy it to start a new note. Text, math, citations,
+margin notes, and figures all work as below. Citations are numbered and show the
+bibliography entry on hover [@zhang2017rethinking; @li2018visualizing].
+
+Inline math looks like $\mathcal{L}(\theta) = \frac{1}{n}\sum_i \ell(f_\theta(x_i), y_i)$,
+and display math can be numbered and referenced:
+
+$$
+\theta_{t+1} = \theta_t - \eta \, \nabla_\theta \mathcal{L}(\theta_t)
+$$ {#eq-gd}
+
+Gradient descent (@eq-gd) is the simplest optimizer.^[Footnotes go in the margin and also show on hover.]
+
+::: {.column-margin}
+**Margin note.** Any block wrapped in `.column-margin` sits in the right margin next to
+the paragraph it follows.
+:::
+
+## Figures at three widths
+
+Hover over a figure reference to preview the figure: @fig-curves shows a body-width
+figure, @fig-grid a page-width one, and @fig-wide a full-screen one. Click a figure to zoom.
+
+```{python}
+#| label: fig-curves
+#| fig-cap: "Body width. Training and validation loss (made-up numbers)."
+from plotting import plot_curves
+plot_curves("results/template/curves.csv");
+```
+
+```{python}
+#| label: fig-grid
+#| fig-cap: "Page width (`.column-page`). Share of test interactions by user history and item popularity."
+#| column: page
+from plotting import plot_grid
+plot_grid("results/template/grid.csv", xlabel="item popularity (train interactions)", ylabel="user history");
+```
+
+```{python}
+#| label: fig-wide
+#| fig-cap: "Screen width (`.column-screen`). The same curves, as wide as the window."
+#| column: screen
+plot_curves("results/template/curves.csv", figsize=(14, 3.2));
+```
+
+A figure can also have its caption in the margin:
+
+```{python}
+#| label: fig-margin-cap
+#| fig-cap: "A caption placed in the margin with `fig-cap-location: margin`."
+#| fig-cap-location: margin
+plot_curves("results/template/curves.csv");
+```
+
+## Code
+
+Code chunks that produce figures are hidden (`echo: false`). To *show* code, use a
+plain code block; it gets a copy button:
+
+```python
+from plotting import plot_curves
+
+plot_curves("results/my-experiment/curves.csv")
+```
+
+## Citing this note
+
+The **Copy BibTeX** button under the title copies the entry below (generated from the
+`citation:` front matter).
+
+## References
+
+::: {#refs}
+:::
