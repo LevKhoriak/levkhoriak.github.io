@@ -1,0 +1,16 @@
+/*-- scss:defaults --*/
+// Mirror the dark colors in shared.css so notes look like the homepage.
+$font-family-sans-serif: 'Lato', Verdana, Helvetica, sans-serif;
+$font-size-root: 16px;
+$body-bg: #161616;
+$body-color: #e6e6e6;
+$link-color: #6aa8ec;
+$link-hover-color: #f5a95a;
+$link-decoration: none;
+$toc-color: #6aa8ec;
+$code-color: #f0a0d0;
+$code-block-bg: #222222;
+$headings-font-weight: 400;
+
+/*-- scss:rules --*/
+@import "note-rules";

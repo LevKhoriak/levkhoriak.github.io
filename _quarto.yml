@@ -1,0 +1,51 @@
+# Quarto project for the notes. The homepage (index.html) is hand-written and not rendered by Quarto.
+# Build everything with: python scripts/build.py   (see README.md)
+project:
+  type: default
+  output-dir: _site
+  render:
+    - notes/*.qmd
+
+execute:
+  echo: false
+  freeze: auto
+
+bibliography: references.bib
+csl: notes/ieee.csl
+
+format:
+  html:
+    theme:
+      light: [cosmo, notes/theme-light.scss]
+      dark: [cosmo, notes/theme-dark.scss]
+    respect-user-color-scheme: true
+    css: shared.css
+    include-after-body: notes/_note-scripts.html
+    template-partials:
+      - notes/_partials/title-block.html
+    toc: true
+    toc-location: left
+    toc-title: Contents
+    toc-depth: 3
+    number-sections: false
+    html-math-method: katex
+    code-copy: true
+    lightbox: true
+    crossrefs-hover: true
+    citations-hover: true
+    footnotes-hover: true
+    reference-location: margin
+    citation-location: document
+    fig-cap-location: bottom
+    fig-width: 6
+    fig-height: 3.2
+    fig-dpi: 200
+    fig-format: png
+    anchor-sections: true
+    smooth-scroll: true
+    link-external-newwindow: false
+    appendix-style: default
+    grid:
+      body-width: 760px
+      margin-width: 280px
+      sidebar-width: 220px

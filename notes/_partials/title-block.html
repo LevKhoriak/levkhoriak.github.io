@@ -1,0 +1,21 @@
+<header id="title-block-header" class="quarto-title-block note-header">
+<a class="back-home" href="../index.html">&larr; Lev Khoriak</a>
+<h1 class="title">$title$</h1>
+$if(by-author)$
+<p class="note-authors">$for(by-author)$<span class="author">$if(it.url)$<a href="$it.url$">$it.name.literal$</a>$else$$it.name.literal$$endif$$if(it.attributes.equal-contributor)$<sup>*</sup>$endif$$if(it.affiliations)$<sup>$for(it.affiliations)$$it.number$$sep$,$endfor$</sup>$endif$</span>$sep$, $endfor$</p>
+$endif$
+$if(by-affiliation)$
+<p class="note-affiliations">$for(by-affiliation)$<sup>$it.number$</sup>&#8201;$it.name$$sep$ &nbsp;&middot;&nbsp; $endfor$</p>
+$endif$
+$if(author-note)$
+<p class="note-author-note">$author-note$</p>
+$endif$
+<div class="note-meta">
+$if(date)$<span class="note-date">$date$</span>$endif$
+$for(tags)$<span class="note-tag">$tags$</span>$endfor$
+<button type="button" class="copy-bibtex" hidden>Copy BibTeX</button>
+</div>
+$if(takeaway)$
+<p class="note-takeaway"><strong>Takeaway.</strong>$takeaway$</p>
+$endif$
+</header>

@@ -1,0 +1,18 @@
+<script>
+// Small additions to Quarto's note pages (vanilla JS, no dependencies).
+(function () {
+  // "Copy BibTeX" button in the title block. Quarto generates the BibTeX entry in the
+  // appendix (from the `citation:` front matter); the button copies that text.
+  var button = document.querySelector(".copy-bibtex");
+  var bibtex = document.querySelector(".quarto-appendix-bibtex");
+  if (button && bibtex && navigator.clipboard) {
+    button.hidden = false;
+    button.addEventListener("click", function () {
+      navigator.clipboard.writeText(bibtex.textContent.trim()).then(function () {
+        button.textContent = "Copied!";
+        setTimeout(function () { button.textContent = "Copy BibTeX"; }, 1500);
+      });
+    });
+  }
+})();
+</script>

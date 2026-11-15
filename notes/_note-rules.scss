@@ -1,0 +1,113 @@
+// Layout and component rules shared by the light and dark note themes.
+// Colors come from the CSS variables in shared.css, so they follow the color scheme.
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+.back-home {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+// ---- Title block ----
+.note-header .title {
+  font-size: 2.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.note-authors {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.note-authors .author {
+  white-space: nowrap;
+}
+
+.note-affiliations,
+.note-author-note {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.note-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.8rem;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.note-tag {
+  padding: 1px 7px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: var(--tag-note);
+  color: var(--tag-text);
+}
+
+.copy-bibtex {
+  padding: 1px 8px;
+  border: 1px solid var(--muted);
+  border-radius: 3px;
+  background: none;
+  color: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.copy-bibtex:hover {
+  color: var(--link-hover);
+  border-color: var(--link-hover);
+}
+
+.note-takeaway {
+  margin: 1.4rem 0 0.5rem;
+  padding: 0.8rem 1rem;
+  border-left: 4px solid var(--link);
+  background-color: var(--highlight);
+  font-size: 1.05rem;
+}
+
+.note-takeaway strong {
+  margin-right: 0.4rem;
+}
+
+// ---- Body ----
+figure figcaption,
+.figure-caption {
+  font-size: 0.9rem;
+}
+
+.column-margin,
+.margin-caption {
+  font-size: 0.85rem;
+}
+
+// Empty figure slot in a skeleton note.
+.figure-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  border: 2px dashed var(--muted);
+  border-radius: 6px;
+  color: var(--muted);
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
+}
+
+// Keep figures inside their column (the lightbox link wraps the image).
+.figure-img,
+a.lightbox img {
+  max-width: 100%;
+  height: auto;
+}
