@@ -75,25 +75,36 @@ Unfilled brackets like `[YEAR]` are mine to fill in: leave them as visible place
   - Note: dark mode done via `prefers-color-scheme`.
 - [x] GitHub Actions deploy workflow + `.nojekyll`; site live at https://levkhoriak.github.io.
   - Note: Pages source switched from legacy branch build to "GitHub Actions". HTTPS push was rejected (gh token lacks `workflow` scope), so pushed over SSH.
-- [ ] **STOP: show me the live page.**
+- [x] **STOP: show me the live page.**
 
 ## Phase 2 — Notes system (Quarto)
-- [ ] Quarto project for `notes/` with a custom theme matching the homepage.
-- [ ] Shared `references.bib` at the repo root.
-- [ ] Note page features:
-  - [ ] title block with multiple authors and affiliations, date, tags
-  - [ ] `takeaway` shown at the top
-  - [ ] sticky table of contents with scroll-spy highlighting
-  - [ ] Distill-style widths: body / page / screen figures and margin notes
+- [x] Quarto project for `notes/` with a custom theme matching the homepage.
+  - Note: root `_quarto.yml` renders `notes/*.qmd` into `_site/notes/`; Quarto 1.11.9 pinned via the `quarto-cli` pip package in `requirements.txt`. Fonts/colors split into `shared.css` (homepage + notes); Bootstrap SCSS values in `notes/theme-*.scss` mirror it. Dark mode follows the system setting.
+- [x] Shared `references.bib` at the repo root.
+- [x] Note page features:
+  - [x] title block with multiple authors and affiliations, date, tags
+    - Note: custom partial `notes/_partials/title-block.html`; `attributes: {equal-contributor: true}` gives the `*` mark, `author-note` the footnote.
+  - [x] `takeaway` shown at the top
+  - [x] sticky table of contents with scroll-spy highlighting
+    - Note: native Quarto (`toc-location: left`, so the right margin stays free for margin notes).
+  - [x] Distill-style widths: body / page / screen figures and margin notes
         (`.column-page`, `.column-screen`, `.column-margin`)
-  - [ ] numbered citations with hover previews of the bibliography entry
-  - [ ] hover previews for figure cross-references ("Figure 2" shows the figure)
-  - [ ] click-to-zoom lightbox on figures
-  - [ ] copy button on code blocks; "copy BibTeX" button for the note
-  - [ ] KaTeX or MathJax math
-  - [ ] anything Quarto lacks natively → own small vanilla JS file
-- [ ] `notes/template.qmd`: dummy content demonstrating every feature above.
-- [ ] `notes/clip-amazon-products.qmd`: `draft: true` skeleton with empty figure slots:
+  - [x] numbered citations with hover previews of the bibliography entry
+    - Note: IEEE CSL (`notes/ieee.csl`) + native `citations-hover`.
+  - [x] hover previews for figure cross-references ("Figure 2" shows the figure)
+    - Note: native `crossrefs-hover`.
+  - [x] click-to-zoom lightbox on figures
+    - Note: native `lightbox: true`.
+  - [x] copy button on code blocks; "copy BibTeX" button for the note
+    - Note: BibTeX comes from Quarto's `citation:` appendix; the button is in `notes/_note-scripts.html`.
+  - [x] KaTeX or MathJax math
+    - Note: KaTeX.
+  - [x] anything Quarto lacks natively → own small vanilla JS file
+    - Note: only the Copy BibTeX button needed JS (`notes/_note-scripts.html`).
+- [x] `notes/template.qmd`: dummy content demonstrating every feature above.
+  - Note: figures come from `notes/plotting.py` + made-up CSVs in `notes/results/template/`; executed output is frozen in `_freeze/` (committed), so CI needs no re-execution.
+- [x] `notes/clip-amazon-products.qmd`: `draft: true` skeleton with empty figure slots:
+  - Note: date set to 2026-11-15 (update when publishing); curator name left as `[CURATOR NAME]`.
   - Takeaway
   - Setup (Amazon Reviews 2023, Fashion vs Grocery, temporal split)
   - How cold is the test set? (figure: user-history × item-popularity grid)
@@ -103,15 +114,18 @@ Unfilled brackets like `[YEAR]` are mine to fill in: leave them as visible place
   - Duplicates and packaging
   - Limitations
   - Acknowledgements (team and curator)
-- [ ] Homepage list generated from note front matter by a small Python script
+- [x] Homepage list generated from note front matter by a small Python script
+  - Note: `scripts/build.py` renders non-draft notes, builds their entries, and merges them with the hand-written ones by `data-date`. The hand-written CLIP entry was removed (now generated).
       (respecting `draft`). If too complex, document the manual step instead.
-- [ ] Deploy workflow renders Quarto; published notes appear on the live site.
+- [x] Deploy workflow renders Quarto; published notes appear on the live site.
+  - Note: verified locally with a temporary non-draft copy of the template; no note is published yet, so the live site has none.
 
 ## Phase 3 — Placeholder
-- [ ] Empty `papers/` folder with a README: future papers are converted LaTeX → HTML
+- [x] Empty `papers/` folder with a README: future papers are converted LaTeX → HTML
+  - Note: `papers/README.md` (git can't track an empty folder).
       (Pandoc or LaTeXML) and share `references.bib`. Don't build the pipeline yet.
 
 ## Done when
 - [ ] Site live at https://levkhoriak.github.io with Phases 1–3 complete.
-- [ ] `README.md` covers: local preview, adding/publishing a note (draft → published),
+- [x] `README.md` covers: local preview, adding/publishing a note (draft → published),
       adding a paper or project entry, how deployment works.
