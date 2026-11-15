@@ -9,7 +9,7 @@ Based on [Jon Barron's template](https://github.com/jonbarron/jonbarron_website)
 | --- | --- |
 | `index.html`, `stylesheet.css` | The homepage (hand-written). |
 | `shared.css` | Fonts and colors shared by the homepage and the notes. |
-| `theme-toggle.js` | Light/dark button on every page. Follows the system until clicked; the choice is remembered (same setting as Quarto's, so it carries between homepage and notes). |
+| `theme-toggle.js` | Theme button on every page, cycling system → light → dark. The choice is remembered under Quarto's own setting, so it carries between homepage and notes. |
 | `bio.txt` | Third-person bio, served at `/bio.txt`. |
 | `images/` | Homepage photo and thumbnails. |
 | `notes/*.qmd` | Notes (Quarto). `notes/template.qmd` shows every feature. |
