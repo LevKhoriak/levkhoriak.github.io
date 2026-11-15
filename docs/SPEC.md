@@ -72,7 +72,8 @@ Unfilled brackets like `[YEAR]` are mine to fill in: leave them as visible place
 - [x] Mobile-friendly layout. Light theme by default; dark mode via
       `prefers-color-scheme` is a nice-to-have.
   - Note: dark mode done via `prefers-color-scheme`.
-- [ ] GitHub Actions deploy workflow + `.nojekyll`; site live at https://levkhoriak.github.io.
+- [x] GitHub Actions deploy workflow + `.nojekyll`; site live at https://levkhoriak.github.io.
+  - Note: Pages source switched from legacy branch build to "GitHub Actions". HTTPS push was rejected (gh token lacks `workflow` scope), so pushed over SSH.
 - [ ] **STOP: show me the live page.**
 
 ## Phase 2 — Notes system (Quarto)
