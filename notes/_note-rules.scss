@@ -111,3 +111,8 @@ a.lightbox img {
   max-width: 100%;
   height: auto;
 }
+
+// Quarto shrinks the BibTeX block to 0.7em; keep it readable.
+#quarto-appendix.default .quarto-appendix-bibtex {
+  font-size: 0.85em;
+}

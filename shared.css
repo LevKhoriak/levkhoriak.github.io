@@ -78,7 +78,7 @@
 :root {
   --bg: #ffffff;
   --text: #000000;
-  --muted: #666666;
+  --muted: #555555;
   --link: #1772d0;
   --link-hover: #f09228;
   --highlight: #ffffd0;
@@ -94,7 +94,7 @@
   :root {
     --bg: #161616;
     --text: #e6e6e6;
-    --muted: #a0a0a0;
+    --muted: #b4b4b4;
     --link: #6aa8ec;
     --link-hover: #f5a95a;
     --highlight: #33321f;

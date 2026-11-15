@@ -79,7 +79,7 @@ Unfilled brackets like `[YEAR]` are mine to fill in: leave them as visible place
 
 ## Phase 2 — Notes system (Quarto)
 - [x] Quarto project for `notes/` with a custom theme matching the homepage.
-  - Note: root `_quarto.yml` renders `notes/*.qmd` into `_site/notes/`; Quarto 1.11.9 pinned via the `quarto-cli` pip package in `requirements.txt`. Fonts/colors split into `shared.css` (homepage + notes); Bootstrap SCSS values in `notes/theme-*.scss` mirror it. Dark mode follows the system setting.
+  - Note: root `_quarto.yml` renders `notes/*.qmd` into `_site/notes/`; Quarto 1.11.9 pinned via the `quarto-cli` pip package in `requirements.txt`. Fonts/colors split into `shared.css` (homepage + notes); Bootstrap SCSS values in `notes/theme-*.scss` mirror it. Dark mode follows the system setting. Dark notes use `darkly` as the base (cosmo hard-coded black code text, unreadable on dark); syntax highlighting `a11y`; muted grey raised to ≥7:1 contrast in both modes.
 - [x] Shared `references.bib` at the repo root.
 - [x] Note page features:
   - [x] title block with multiple authors and affiliations, date, tags

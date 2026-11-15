@@ -76,7 +76,7 @@ Figure slot: same-type share among 10 nearest neighbors — image vs title vs ra
 
 ## Acknowledgements
 
-We thank our team and our curator [CURATOR NAME] for [TODO].
+We thank our team and our curator, Danila Lyapin, for [TODO].
 
 ## References
 

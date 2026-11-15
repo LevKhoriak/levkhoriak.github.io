@@ -17,8 +17,9 @@ format:
   html:
     theme:
       light: [cosmo, notes/theme-light.scss]
-      dark: [cosmo, notes/theme-dark.scss]
+      dark: [darkly, notes/theme-dark.scss]
     respect-user-color-scheme: true
+    highlight-style: a11y
     css: shared.css
     include-after-body: notes/_note-scripts.html
     template-partials:
