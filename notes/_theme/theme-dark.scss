@@ -1,17 +1,24 @@
 /*-- scss:defaults --*/
 // Mirror the dark colors in shared.css so notes look like the homepage.
+// One accent (the homepage link blue, lightened for dark) for links, the active ToC item, and the takeaway.
+$accent: #6aa8ec;
+
 $font-family-sans-serif: 'Lato', Verdana, Helvetica, sans-serif;
 $font-size-root: 16px;
-$body-bg: #161616;
+$body-bg: #16181c;
 $body-color: #e6e6e6;
-$link-color: #6aa8ec;
-$link-hover-color: #f5a95a;
-$link-decoration: none;
-$toc-color: #6aa8ec;
-$code-color: #f0a0d0;
-$code-block-bg: #222222;
-$pre-color: #e6e6e6;
 $text-muted: #b4b4b4;
+$link-color: $accent;
+$link-hover-color: #9cc6f3;
+$link-decoration: none;
+$toc-color: $accent;
+$toc-active-border: $accent;
+$toc-inactive-border: #33363c;
+$code-color: #f0a0d0;
+$code-block-bg: #1e2126;
+$code-bg: #262a31;
+$pre-color: #e6e6e6;
+$border-color: #33363c;
 $headings-font-weight: 400;
 
 /*-- scss:rules --*/

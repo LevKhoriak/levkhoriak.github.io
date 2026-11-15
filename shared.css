@@ -90,40 +90,52 @@ body.quarto-light {
   --tag-note: #fde7c8;
   --tag-project: #dcefd9;
   --tag-text: #333333;
+  --text-soft: #333333;
+  --accent-tint: rgba(23, 114, 208, 0.07);
+  --pill-bg: #f0f1f3;
+  --pill-text: #444444;
   color-scheme: light;
 }
 
 /* The dark values appear twice (system preference / explicit toggle); keep both in sync. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #161616;
+    --bg: #16181c;
     --text: #e6e6e6;
     --muted: #b4b4b4;
     --link: #6aa8ec;
     --link-hover: #f5a95a;
     --highlight: #33321f;
-    --placeholder-bg: #2a2a2a;
+    --placeholder-bg: #2a2d33;
     --tag-paper: #22364f;
     --tag-note: #4a3a22;
     --tag-project: #24402a;
     --tag-text: #e6e6e6;
+    --text-soft: #cfcfcf;
+    --accent-tint: rgba(106, 168, 236, 0.11);
+    --pill-bg: #262a31;
+    --pill-text: #d0d0d0;
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"],
 body.quarto-dark {
-  --bg: #161616;
+  --bg: #16181c;
   --text: #e6e6e6;
   --muted: #b4b4b4;
   --link: #6aa8ec;
   --link-hover: #f5a95a;
   --highlight: #33321f;
-  --placeholder-bg: #2a2a2a;
+  --placeholder-bg: #2a2d33;
   --tag-paper: #22364f;
   --tag-note: #4a3a22;
   --tag-project: #24402a;
   --tag-text: #e6e6e6;
+  --text-soft: #cfcfcf;
+  --accent-tint: rgba(106, 168, 236, 0.11);
+  --pill-bg: #262a31;
+  --pill-text: #d0d0d0;
   color-scheme: dark;
 }
 
