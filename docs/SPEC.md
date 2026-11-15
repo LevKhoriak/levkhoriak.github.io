@@ -126,6 +126,6 @@ Unfilled brackets like `[YEAR]` are mine to fill in: leave them as visible place
       (Pandoc or LaTeXML) and share `references.bib`. Don't build the pipeline yet.
 
 ## Done when
-- [ ] Site live at https://levkhoriak.github.io with Phases 1–3 complete.
+- [x] Site live at https://levkhoriak.github.io with Phases 1–3 complete.
 - [x] `README.md` covers: local preview, adding/publishing a note (draft → published),
       adding a paper or project entry, how deployment works.
