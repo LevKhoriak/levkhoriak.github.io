@@ -10,6 +10,7 @@
     <meta property="og:description" content="MSc student in AI at HSE University, interested in the science of deep learning.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://levkhoriak.github.io/">
+    <link rel="stylesheet" type="text/css" href="shared.css">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
   </head>
 
@@ -59,12 +60,12 @@
       </section>
 
       <!--
-        One <article class="paper"> per entry. Tag: <span class="tag tag-paper|tag-note|tag-project">.
-        My name goes in <strong>. Entries with data-draft are shown in local preview only:
-        scripts/build.py removes them from the published site.
-      -->
-      <section class="papers">
-      <article class="paper">
+        Hand-written entries (papers, projects): one <article class="paper" data-date="YYYY-MM-DD"> each.
+        Tag: <span class="tag tag-paper|tag-project">. My name goes in <strong>.
+        Notes are NOT listed here: scripts/build.py adds them from their front matter and sorts
+        everything by data-date, newest first. Add data-draft to hide an entry from the live site.
+      -->      <section class="papers">
+      <article class="paper" data-date="2026-09-01">
         <div class="paper-media">
           <img src="images/thumb-recsys.svg" alt="Multimodal Recommender System" width="160" height="160">
         </div>
@@ -76,20 +77,6 @@
           <div class="paper-venue"><em>HSE University course project</em>, 2026–2027</div>
           <div class="paper-links"><a href="https://github.com/LevKhoriak/hse-ai-26-recsys-team-120">code</a></div>
           <p class="paper-desc">Text and image content for recommendations on Amazon Reviews 2023, with a focus on cold items and short user histories.</p>
-        </div>
-      </article>
-      <article class="paper" data-draft>
-        <div class="paper-media">
-          <img src="images/thumb-clip-amazon.svg" alt="What CLIP sees in Amazon products" width="160" height="160">
-        </div>
-        <div class="paper-info">
-          <span class="tag tag-note">note</span>
-          <a href="notes/clip-amazon-products.html" class="papertitle">What CLIP sees in Amazon products</a>
-          <div class="paper-authors"><span class="author">Anzhelika Artamonova<sup>*</sup></span>, <strong>Lev Khoriak<sup>*</sup></strong>, <span class="author">Valeria Kushchenko<sup>*</sup></span>, <span class="author">Alexey Pristaiko<sup>*</sup></span>, <span class="author">Danila Lyapin</span></div>
-          <div class="author-note"><sup>*</sup> Alphabetical order; Danila Lyapin is the advisor.</div>
-          <div class="paper-venue"><em>Note</em>, [DATE]</div>
-          <div class="paper-links"><a href="notes/clip-amazon-products.html">note</a></div>
-          <p class="paper-desc">Image embeddings group groceries by packaging, a third of fashion items share a photo, and standard 5-core filtering would erase almost all cold-start evaluation.</p>
         </div>
       </article>
       </section>
