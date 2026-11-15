@@ -57,47 +57,64 @@ the paragraph it follows.
 Hover over a figure reference to preview the figure: @fig-curves shows a body-width
 figure, @fig-grid a page-width one, and @fig-wide a full-screen one. Click a figure to zoom.
 
+::: {#fig-curves}
 ```{python}
-#| label: fig-curves
-#| fig-cap: "Body width. Training and validation loss (made-up numbers)."
-from plotting import plot_curves
-plot_curves("results/curves.csv");
+#| renderings: [light, dark]
+from plotting import plot_curves, plot_grid
+plot_curves("results/curves.csv")
 ```
 
+Body width. Training and validation loss (made-up numbers).
+:::
+
+::: {#fig-grid .column-page}
 ```{python}
-#| label: fig-grid
-#| fig-cap: "Page width (`.column-page`). Share of test interactions by user history and item popularity."
-#| column: page
-from plotting import plot_grid
-plot_grid("results/grid.csv", xlabel="item popularity (train interactions)", ylabel="user history");
+#| renderings: [light, dark]
+plot_grid("results/grid.csv", xlabel="item popularity (train interactions)", ylabel="user history")
 ```
 
+Page width (`.column-page`). Share of test interactions by user history and item popularity.
+:::
+
+::: {#fig-wide .column-screen}
 ```{python}
-#| label: fig-wide
-#| fig-cap: "Screen width (`.column-screen`). The same curves, as wide as the window."
-#| column: screen
-plot_curves("results/curves.csv", figsize=(14, 3.2));
+#| renderings: [light, dark]
+plot_curves("results/curves.csv", figsize=(14, 3.2))
 ```
+
+Screen width (`.column-screen`). The same curves, as wide as the window.
+:::
 
 A figure can also have its caption in the margin:
 
+::: {#fig-margin-cap cap-location="margin"}
 ```{python}
-#| label: fig-margin-cap
-#| fig-cap: "A caption placed in the margin with `fig-cap-location: margin`."
-#| fig-cap-location: margin
-plot_curves("results/curves.csv");
+#| renderings: [light, dark]
+plot_curves("results/curves.csv")
 ```
+
+A caption placed in the margin with `cap-location="margin"`.
+:::
 
 ## Code
 
 Code chunks that produce figures are hidden (`echo: false`). To *show* code, use a
-plain code block; it gets a copy button:
+plain code block; it gets a copy button. This is how every figure above is written: the
+label, width class, and caption go on a `:::` block, and the chunk only plots.
+`renderings: [light, dark]` makes Quarto show the version that matches the page theme
+(the plotting functions draw both).
 
-```python
+````markdown
+::: {#fig-curves .column-page}
+```{python}
+#| renderings: [light, dark]
 from plotting import plot_curves
-
 plot_curves("results/curves.csv")
 ```
+
+Caption text, which can cite [@zhang2017rethinking].
+:::
+````
 
 ## Citing this note
 
