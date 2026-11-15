@@ -60,7 +60,7 @@ Unfilled brackets like `[YEAR]` are mine to fill in: leave them as visible place
 - [x] Set up from Jon Barron's template in this repo (keep credit link, remove analytics).
   - Note: based on the current flex/grid version of his `stylesheet.css`; colors moved to CSS variables. Removed the old Jekyll `_config.yml`.
 - [x] Header: name, Russian name, one-liner/bio, links, photo.
-  - Note: X added (https://x.com/levkhoriak); CV omitted; Email added; ORCID left as a visible `[..]` placeholder; photo is `images/lev-khoriak.jpg` (square crop, 600px, metadata stripped).
+  - Note: X added (https://x.com/levkhoriak); CV omitted; Email and ORCID added; photo is `images/lev-khoriak.jpg` (square crop, 600px, metadata stripped).
 - [x] Education section.
 - [x] "Research & Notes" list supporting [paper] / [note] / [project] tags,
       multiple co-authors with my name in bold, and hidden drafts.
@@ -68,6 +68,7 @@ Unfilled brackets like `[YEAR]` are mine to fill in: leave them as visible place
 - [x] Add the two initial entries above (draft note hidden).
   - Note: draft note's date is a `[DATE]` placeholder.
 - [x] Misc section with the podcasts entry.
+  - Note: links to one Apple Podcasts episode (#3).
 - [x] `/bio.txt`.
 - [x] Mobile-friendly layout. Light theme by default; dark mode via
       `prefers-color-scheme` is a nice-to-have.
