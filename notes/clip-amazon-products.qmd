@@ -1,0 +1,84 @@
+---
+title: "What CLIP sees in Amazon products"
+authors:
+  - name: Anzhelika Artamonova
+    affiliations: [{ref: hse}]
+    attributes: {equal-contributor: true}
+  - name: Lev Khoriak
+    affiliations: [{ref: hse}]
+    attributes: {equal-contributor: true}
+  - name: Valeria Kushchenko
+    affiliations: [{ref: hse}]
+    attributes: {equal-contributor: true}
+  - name: Alexey Pristaiko
+    affiliations: [{ref: hse}]
+    attributes: {equal-contributor: true}
+  - name: Danila Lyapin
+    affiliations: [{ref: hse}]
+affiliations:
+  - id: hse
+    name: HSE University
+author-note: "* Alphabetical order; Danila Lyapin is the advisor."
+date: 2026-11-15
+tags: [recommender systems, CLIP, cold start]
+takeaway: "Image embeddings group groceries by packaging, a third of fashion items share a photo, and standard 5-core filtering would erase almost all cold-start evaluation."
+thumbnail: images/thumb-placeholder.svg
+draft: true
+citation:
+  type: webpage
+  url: https://levkhoriak.github.io/notes/clip-amazon-products.html
+---
+
+## Setup
+
+Amazon Reviews 2023 [@hou2024amazon], two categories (Fashion vs Grocery), temporal split.
+Image and title embeddings from CLIP [@radford2021clip].
+
+[TODO: dataset sizes, split dates, embedding model.]
+
+## How cold is the test set?
+
+::: {#fig-cold-grid}
+::: {.figure-slot}
+Figure slot: user-history × item-popularity grid of test interactions.
+:::
+
+[TODO caption.]
+:::
+
+## What 5-core filtering would remove
+
+::: {#fig-five-core}
+::: {.figure-slot}
+Figure slot: what 5-core filtering would remove.
+:::
+
+[TODO caption.]
+:::
+
+## What CLIP neighbors share
+
+::: {#fig-neighbors .column-page}
+::: {.figure-slot}
+Figure slot: same-type share among 10 nearest neighbors — image vs title vs random.
+:::
+
+[TODO caption.]
+:::
+
+## Duplicates and packaging
+
+[TODO]
+
+## Limitations
+
+[TODO]
+
+## Acknowledgements
+
+We thank our team and our curator [CURATOR NAME] for [TODO].
+
+## References
+
+::: {#refs}
+:::
